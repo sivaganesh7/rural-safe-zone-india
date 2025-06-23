@@ -60,8 +60,12 @@ const Index = () => {
             </div>
 
             <div className="flex items-center space-x-4">
-              <Button variant="outline" size="sm">Login</Button>
-              <Button size="sm" className="bg-blue-600 hover:bg-blue-700">Register</Button>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/login">Login</a>
+              </Button>
+              <Button size="sm" className="bg-blue-600 hover:bg-blue-700" asChild>
+                <a href="/register">Register</a>
+              </Button>
             </div>
           </div>
         </div>
@@ -83,11 +87,11 @@ const Index = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3">
-              Start Learning Now
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3" asChild>
+              <a href="/register">Start Learning Now</a>
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-3">
-              Report a Scam
+            <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
+              <a href="/report-fraud">Report a Scam</a>
             </Button>
           </div>
 
@@ -123,8 +127,8 @@ const Index = () => {
                   <CardDescription className="text-center text-gray-600">
                     {feature.description}
                   </CardDescription>
-                  <Button className="w-full mt-4" variant="outline">
-                    Learn More
+                  <Button className="w-full mt-4" variant="outline" asChild>
+                    <a href={feature.link}>Learn More</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -148,8 +152,8 @@ const Index = () => {
               <Phone className="h-5 w-5 mr-2" />
               Call Cyber Crime Helpline
             </Button>
-            <Button variant="outline" size="lg">
-              Report Immediately
+            <Button variant="outline" size="lg" asChild>
+              <a href="/report-fraud">Report Immediately</a>
             </Button>
           </div>
           <p className="text-sm text-gray-500 mt-4">
@@ -190,16 +194,16 @@ const Index = () => {
             <div>
               <h3 className="font-semibold mb-4">Learn</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Document Fraud</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Online Scams</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Digital Safety</a></li>
+                <li><a href="/awareness" className="hover:text-white transition-colors">Document Fraud</a></li>
+                <li><a href="/scam-types" className="hover:text-white transition-colors">Online Scams</a></li>
+                <li><a href="/digital-literacy" className="hover:text-white transition-colors">Digital Safety</a></li>
               </ul>
             </div>
             
             <div>
               <h3 className="font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Report Fraud</a></li>
+                <li><a href="/report-fraud" className="hover:text-white transition-colors">Report Fraud</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Get Help</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
               </ul>
