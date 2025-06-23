@@ -4,6 +4,7 @@ import { Shield, AlertTriangle, Smartphone, FileText, Users, Phone, Eye, ShieldA
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import MainNavbar from '@/components/MainNavbar';
+import Register from './Register';
 
 const Index = () => {
   const [currentLanguage, setCurrentLanguage] = useState('English');
@@ -78,7 +79,7 @@ const Index = () => {
               </a>
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-2 border-red-600 text-red-600 hover:bg-red-50 shadow-lg" asChild>
-              <a href="/report-fraud">
+              <a href="/register">
                 <AlertTriangle className="h-5 w-5 mr-2" />
                 Report a Scam
               </a>
@@ -117,23 +118,24 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-0 shadow-lg">
-                <CardHeader className="text-center pb-2">
-                  <div className={`${feature.color} w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-xl`}>
-                    <feature.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-lg font-bold">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-center text-gray-600 mb-4 font-medium">
-                    {feature.description}
-                  </CardDescription>
-                  <Button className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900" asChild>
-                    <a href={feature.link}>Start Learning</a>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+               <Card key={index} className="hover:shadow-2xl transition-all duration-300 cursor-pointer group       border-0 shadow-lg">
+                 <CardHeader className="text-center pb-2">
+                   <div className={`${feature.color} w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-xl`}>
+                     <feature.icon className="h-8 w-8 text-white" />
+                   </div>
+                   <CardTitle className="text-lg font-bold">{feature.title}</CardTitle>
+                 </CardHeader>
+                 <CardContent>
+                   <CardDescription className="text-center text-gray-600 mb-4 font-medium">
+                     {feature.description}
+                   </CardDescription>
+                   <Button className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900" asChild>
+                     <a href="/register">Start Learning</a>
+                   </Button>
+                 </CardContent>
+               </Card>
+))}
+
           </div>
         </div>
       </section>
@@ -154,8 +156,8 @@ const Index = () => {
                 <Phone className="h-5 w-5 mr-2" />
                 Call 1930 Now
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-red-600" asChild>
-                <a href="/report-fraud">Report Immediately</a>
+              <Button variant="outline" size="lg" className="border-white text-black  font-bold hover:bg-white hover:text-red-600" asChild>
+                <a href="/Register">Register For Other Scams </a>
               </Button>
             </div>
             <p className="text-sm text-red-200 mt-4 font-medium">

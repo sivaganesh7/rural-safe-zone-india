@@ -33,7 +33,7 @@ const DashboardNavbar = ({ showBackButton = false, backTo = "/dashboard", title 
   };
 
   return (
-    <nav className="bg-gradient-to-r from-red-600 to-red-800 shadow-xl sticky top-0 z-50 border-b-4 border-red-900">
+    <nav className="bg-gradient-to-r from-red-600 to-blue-800 shadow-xl sticky top-0 z-50 border-b-4 border-red-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">

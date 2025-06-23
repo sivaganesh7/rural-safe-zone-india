@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 const MainNavbar = () => {
   return (
-    <nav className="bg-gradient-to-r from-red-600 to-red-800 shadow-xl sticky top-0 z-50 border-b-4 border-red-900">
+    <nav className="bg-gradient-to-r from-blue-600 to-orange-800 shadow-xl sticky top-0 z-50 border-b-4 border-red-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-3">
@@ -36,10 +36,10 @@ const MainNavbar = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Button variant="outline" size="sm" className="border-red-200 text-red-100 hover:bg-red-700" asChild>
+            <Button variant="outline" size="sm" className="bg-white border-red-200 text-black-700 hover:bg-red-700" asChild>
               <Link to="/login">Login</Link>
             </Button>
-            <Button size="sm" className="bg-white text-red-600 hover:bg-red-50 font-semibold" asChild>
+            <Button size="sm" className="bg-white text-white-600 hover:bg-red-500 font-semibold hover:text-black-100" asChild>
               <Link to="/register">Protect Yourself</Link>
             </Button>
           </div>

@@ -10,7 +10,7 @@ const Dashboard = () => {
     {
       icon: FileText,
       title: "Document Fraud Awareness",
-      description: "Learn to identify fake officers and document frauds targeting rural areas",
+      description: "Learn to identify fake officers and document frauds",
       color: "bg-gradient-to-br from-blue-500 to-blue-700",
       link: "/awareness",
       stats: "15 min read"
