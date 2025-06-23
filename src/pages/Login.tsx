@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Shield, Mail, Lock, Eye, EyeOff } from 'lucide-react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -17,14 +19,15 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     
-    // TODO: Implement Firebase authentication
-    console.log('Login attempt:', { email, password });
-    
-    // Simulate API call and redirect to dashboard
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
       navigate('/dashboard');
-    }, 1000);
+    } catch (error: any) {
+      console.error('Error signing in:', error.message);
+      alert(`Login failed: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
