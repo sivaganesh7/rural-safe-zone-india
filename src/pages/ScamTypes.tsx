@@ -125,7 +125,7 @@ const ScamTypes = () => {
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {warningSignstypes.map((sign, index) => (
+                {warningSigns.map((sign, index) => (
                   <div key={index} className="flex items-center p-3 bg-white rounded-lg border">
                     <AlertTriangle className="h-5 w-5 text-yellow-500 mr-3 flex-shrink-0" />
                     <span className="text-sm">{sign}</span>
