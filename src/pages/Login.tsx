@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { loginUser } from '@/services/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -17,14 +18,14 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     
-    // TODO: Implement Firebase authentication
-    console.log('Login attempt:', { email, password });
-    
-    // Simulate API call and redirect to dashboard
-    setTimeout(() => {
+    try {
+      await loginUser(email, password);
       setLoading(false);
       navigate('/dashboard');
-    }, 1000);
+    } catch (error) {
+      setLoading(false);
+      alert('Login failed. Please check your credentials.');
+    }
   };
 
   return (

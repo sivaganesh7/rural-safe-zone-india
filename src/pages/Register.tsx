@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
@@ -7,6 +6,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
+import { registerUser } from '@/services/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ const Register = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -43,14 +45,14 @@ const Register = () => {
 
     setLoading(true);
     
-    // TODO: Implement Firebase authentication
-    console.log('Registration attempt:', formData);
-    
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      await registerUser(formData.email, formData.password, formData.name);
       setLoading(false);
-      // TODO: Redirect to dashboard on success
-    }, 1000);
+      navigate('/dashboard');
+    } catch (error) {
+      setLoading(false);
+      alert('Registration failed. Please try again.');
+    }
   };
 
   return (

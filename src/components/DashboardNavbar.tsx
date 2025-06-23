@@ -1,4 +1,3 @@
-
 import { Shield, ArrowLeft, User, LogOut, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -11,7 +10,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { auth } from '@/services/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 interface DashboardNavbarProps {
   showBackButton?: boolean;
@@ -21,16 +22,35 @@ interface DashboardNavbarProps {
 
 const DashboardNavbar = ({ showBackButton = false, backTo = "/dashboard", title }: DashboardNavbarProps) => {
   const navigate = useNavigate();
-  const [user] = useState({
-    name: "User Name",
-    email: "user@example.com",
-    avatar: ""
-  });
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser({
+          name: currentUser.displayName || currentUser.email?.split('@')[0] || "User Name",
+          email: currentUser.email || "user@example.com",
+          avatar: currentUser.photoURL || ""
+        });
+      } else {
+        setUser(null);
+        navigate('/login'); // Redirect to login if not authenticated
+      }
+    });
+    return () => unsubscribe();
+  }, [navigate]);
 
   const handleLogout = () => {
-    // Add logout logic here
-    navigate('/');
+    auth.signOut().then(() => {
+      navigate('/login');
+    }).catch((error) => {
+      console.error('Logout error:', error);
+    });
   };
+
+  if (!user) {
+    return null; // Loading state or redirect handled in useEffect
+  }
 
   return (
     <nav className="bg-gradient-to-r from-red-600 to-blue-800 shadow-xl sticky top-0 z-50 border-b-4 border-red-900">
