@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Shield, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,7 +7,6 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { registerUser } from '@/services/auth';
-import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -32,7 +31,13 @@ const Register = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert('Invalid email format');
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match!');
       return;
@@ -44,21 +49,21 @@ const Register = () => {
     }
 
     setLoading(true);
-    
+
     try {
       await registerUser(formData.email, formData.password, formData.name);
-      setLoading(false);
+      alert('Account created successfully!');
       navigate('/dashboard');
-    } catch (error) {
+    } catch (error: any) {
+      alert('Registration failed: ' + error.message);
+    } finally {
       setLoading(false);
-      alert('Registration failed. Please try again.');
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        {/* Header */}
         <div className="text-center">
           <div className="flex justify-center">
             <Shield className="h-12 w-12 text-blue-600" />
@@ -71,7 +76,6 @@ const Register = () => {
           </p>
         </div>
 
-        {/* Registration Form */}
         <Card className="shadow-xl">
           <CardHeader>
             <CardTitle className="text-center">Create Account</CardTitle>
@@ -81,6 +85,7 @@ const Register = () => {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
               <div>
                 <Label htmlFor="name">Full Name</Label>
                 <div className="mt-1 relative">
@@ -98,6 +103,7 @@ const Register = () => {
                 </div>
               </div>
 
+              {/* Email */}
               <div>
                 <Label htmlFor="email">Email Address</Label>
                 <div className="mt-1 relative">
@@ -115,6 +121,7 @@ const Register = () => {
                 </div>
               </div>
 
+              {/* Password */}
               <div>
                 <Label htmlFor="password">Password</Label>
                 <div className="mt-1 relative">
@@ -139,6 +146,7 @@ const Register = () => {
                 </div>
               </div>
 
+              {/* Confirm Password */}
               <div>
                 <Label htmlFor="confirmPassword">Confirm Password</Label>
                 <div className="mt-1 relative">
@@ -163,24 +171,17 @@ const Register = () => {
                 </div>
               </div>
 
+              {/* Terms */}
               <div className="flex items-center space-x-2">
                 <Checkbox
                   id="terms"
                   checked={acceptTerms}
                   onCheckedChange={(checked) => setAcceptTerms(checked === true)}
                 />
-                <label
-                  htmlFor="terms"
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
+                <label htmlFor="terms" className="text-sm text-gray-700">
                   I agree to the{' '}
-                  <a href="#" className="text-blue-600 hover:text-blue-500">
-                    Terms of Service
-                  </a>{' '}
-                  and{' '}
-                  <a href="#" className="text-blue-600 hover:text-blue-500">
-                    Privacy Policy
-                  </a>
+                  <a href="#" className="text-blue-600 hover:text-blue-500">Terms</a> and{' '}
+                  <a href="#" className="text-blue-600 hover:text-blue-500">Privacy Policy</a>
                 </label>
               </div>
 
@@ -193,28 +194,17 @@ const Register = () => {
               </Button>
             </form>
 
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300" />
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Already have an account?</span>
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <Link to="/login">
-                  <Button variant="outline" className="w-full">
-                    Sign In Instead
-                  </Button>
+            <div className="mt-6 text-center">
+              <p className="text-sm text-gray-500">
+                Already have an account?{' '}
+                <Link to="/login" className="text-blue-600 hover:text-blue-500">
+                  Sign In Instead
                 </Link>
-              </div>
+              </p>
             </div>
           </CardContent>
         </Card>
 
-        {/* Back to Home */}
         <div className="text-center">
           <Link to="/" className="text-sm text-blue-600 hover:text-blue-500">
             ← Back to Home

@@ -1,27 +1,35 @@
-import { auth } from './firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { db } from './firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import { auth, db } from './firebase';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 
-export const registerUser = async (email: string, password: string, name: string) => {
+export const registerUser = async (
+  email: string,
+  password: string,
+  name: string
+) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Update the user's display name
+    // Update display name in Firebase Auth
     await updateProfile(user, { displayName: name });
 
-    // Save additional user data to Firestore
+    // Save additional data to Firestore
     await setDoc(doc(db, 'users', user.uid), {
-      name: name,
-      email: email,
-      createdAt: new Date().toISOString()
+      uid: user.uid,
+      name,
+      email,
+      createdAt: serverTimestamp(),
     });
 
     return user;
-  } catch (error) {
-    console.error('Registration error:', error);
-    throw error;
+  } catch (error: any) {
+    console.error('Registration error:', error.message);
+    throw new Error(error.message || 'Something went wrong during registration');
   }
 };
 
@@ -29,8 +37,8 @@ export const loginUser = async (email: string, password: string) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     return userCredential.user;
-  } catch (error) {
-    console.error('Login error:', error);
-    throw error;
+  } catch (error: any) {
+    console.error('Login error:', error.message);
+    throw new Error(error.message || 'Login failed');
   }
 };
