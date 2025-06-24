@@ -1,6 +1,5 @@
-import { Shield, ArrowLeft, User, LogOut, Settings } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,10 +8,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import { auth } from '@/services/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import { ArrowLeft, LogOut, Settings, Shield, User } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface DashboardNavbarProps {
   showBackButton?: boolean;
@@ -87,7 +87,7 @@ const DashboardNavbar = ({ showBackButton = false, backTo = "/dashboard", title 
           </div>
 
           <div className="flex items-center space-x-4">
-            <Button variant="outline" size="sm" className="border-red-200 text-red-100 hover:bg-red-700" asChild>
+            <Button variant="outline" size="sm" className="border-red-200 text-black-100 hover:bg-red-700" asChild>
               <Link to="/">Home</Link>
             </Button>
             

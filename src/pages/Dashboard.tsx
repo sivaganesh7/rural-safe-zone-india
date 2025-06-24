@@ -159,7 +159,7 @@ const Dashboard = () => {
                 Report Scam Now
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-red-600" asChild>
+            <Button variant="outline" size="lg" className="border-white text-Black font-bold hover:bg-white hover:text-red-600" asChild>
               <Link to="/emergency-contacts">
                 <Phone className="h-5 w-5 mr-2" />
                 Emergency Numbers
