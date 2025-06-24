@@ -3,6 +3,7 @@ import { Shield, Phone, AlertTriangle, Users, FileText, Smartphone } from 'lucid
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import BackButton from '@/components/BackButton';
 
 const EmergencyContacts = () => {
   const emergencyContacts = [
@@ -47,6 +48,9 @@ const EmergencyContacts = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Navigation */}
+        <div className="sticky top-4 z-50">
+        <BackButton />
+      </div>
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">

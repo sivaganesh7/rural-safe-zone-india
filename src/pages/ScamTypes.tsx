@@ -3,6 +3,7 @@ import { Smartphone, CreditCard, Gift, Phone, AlertTriangle, Shield } from 'luci
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import BackButton from '@/components/BackButton';
 
 const ScamTypes = () => {
   const scamTypes = [
@@ -52,6 +53,9 @@ const ScamTypes = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
+       <div className="sticky top-4 z-50">
+        <BackButton />
+      </div>
       <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <AlertTriangle className="h-16 w-16 mx-auto mb-6" />
