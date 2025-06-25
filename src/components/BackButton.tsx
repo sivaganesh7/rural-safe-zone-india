@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 interface BackButtonProps {
   label?: string;
-  to?: string; // Defaults to '/dashboard'
+  to?: string; 
 }
 
 const BackButton = ({ label = 'Back to Dashboard', to = '/dashboard' }: BackButtonProps) => {
@@ -14,7 +14,7 @@ const BackButton = ({ label = 'Back to Dashboard', to = '/dashboard' }: BackButt
     <Button
       variant="outline"
       onClick={() => navigate(to)}
-      className="flex items-center gap-2 text-sm hover:bg-blue-100"
+      className="flex items-center bg-green-500 gap-2 text-sm hover:bg-blue-200"
     >
       <ArrowLeft className="h-4 w-4" />
       {label}

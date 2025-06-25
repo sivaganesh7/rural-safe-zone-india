@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import BackButton from '@/components/BackButton';
+import DashboardNavbar from '@/components/DashboardNavbar';
+import DashboardFooter from '@/components/DashboardFooter';
 
 const Awareness = () => {
   const realOfficerSigns = [
@@ -27,7 +29,8 @@ const Awareness = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="sticky top-4 z-50">
+      <DashboardNavbar />
+      <div className="top-8 my-5 z-50">
         <BackButton />
       </div>
       <div className="bg-blue-600 text-white py-16">
@@ -207,14 +210,10 @@ const Awareness = () => {
         </Alert>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-            Learn About Online Scams
-          </Button>
-          <Button variant="outline" size="lg">
-            Report a Fraud Case
-          </Button>
+        <div className="bg-red-700 mt-12 ">
+          <DashboardFooter />
         </div>
+        
       </div>
     </div>
   );

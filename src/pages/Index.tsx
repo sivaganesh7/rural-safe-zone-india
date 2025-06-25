@@ -81,7 +81,7 @@ const Index = () => {
             <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-2 border-red-600 text-red-600 hover:bg-red-50 shadow-lg" asChild>
               <a href="/register">
                 <AlertTriangle className="h-5 w-5 mr-2" />
-                Report a Scam
+                Learn More
               </a>
             </Button>
           </div>

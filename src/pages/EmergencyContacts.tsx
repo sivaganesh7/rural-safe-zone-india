@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import BackButton from '@/components/BackButton';
+import DashboardNavbar from '@/components/DashboardNavbar';
 
 const EmergencyContacts = () => {
   const emergencyContacts = [
@@ -47,30 +48,11 @@ const EmergencyContacts = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <DashboardNavbar/>
       {/* Navigation */}
-        <div className="sticky top-4 z-50">
+        <div className="top-4 z-50 my-5 ml-10">
         <BackButton />
       </div>
-      <nav className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex items-center space-x-3">
-              <Shield className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-900">Rural Fraud Alert</span>
-            </Link>
-            
-            <div className="flex items-center space-x-4">
-              <Button variant="outline" size="sm" asChild>
-                <Link to="/dashboard">Dashboard</Link>
-              </Button>
-              <Button variant="outline" size="sm" asChild>
-                <Link to="/">Home</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Header */}
       <section className="py-12 px-4 text-center">
         <div className="max-w-4xl mx-auto">
@@ -181,12 +163,12 @@ const EmergencyContacts = () => {
             <Card>
               <CardContent className="pt-6 text-center">
                 <AlertTriangle className="h-8 w-8 text-red-600 mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Report Fraud</h3>
+                <h3 className="font-semibold mb-2">Scams & Frauds</h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  Report suspicious activities immediately
+                  Scams types and Frauds
                 </p>
                 <Button size="sm" variant="outline" asChild>
-                  <Link to="/report-fraud">Report Now</Link>
+                  <Link to="/scam-types">Learn More</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -194,16 +176,8 @@ const EmergencyContacts = () => {
         </div>
       </section>
 
-      {/* Back to Dashboard */}
-      <section className="py-8 px-4">
-        <div className="text-center">
-          <Button asChild>
-            <Link to="/dashboard">
-              ← Back to Dashboard
-            </Link>
-          </Button>
-        </div>
-      </section>
+
+    
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import BackButton from '@/components/BackButton';
+import DashboardNavbar from '@/components/DashboardNavbar';
 
 const ScamTypes = () => {
   const scamTypes = [
@@ -53,7 +54,8 @@ const ScamTypes = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-       <div className="sticky top-4 z-50">
+      <DashboardNavbar />
+       <div className="top-4 z-50 my-5 ml-10">
         <BackButton />
       </div>
       <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-16">

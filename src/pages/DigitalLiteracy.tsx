@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useState } from 'react';
 import BackButton from '@/components/BackButton';
+import DashboardNavbar from '@/components/DashboardNavbar';
+import DashboardFooter from '@/components/DashboardFooter';
 
 const DigitalLiteracy = () => {
   const [showOtp, setShowOtp] = useState(false);
@@ -39,9 +41,10 @@ const DigitalLiteracy = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-       <div className="sticky top-4 z-50">
-              <BackButton />
-            </div>
+      <DashboardNavbar />
+       <div className="top-4 z-50 my-5 ml-10">
+        <BackButton />
+      </div>
       <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <Smartphone className="h-16 w-16 mx-auto mb-6" />
@@ -217,7 +220,7 @@ const DigitalLiteracy = () => {
           </Card>
         </section>
 
-        {/* Action Buttons */}
+        {/* Action Buttons
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
             Practice More Examples
@@ -225,7 +228,8 @@ const DigitalLiteracy = () => {
           <Button variant="outline" size="lg">
             Test Your Knowledge
           </Button>
-        </div>
+        </div> */}
+        <DashboardFooter />
       </div>
     </div>
   );

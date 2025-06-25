@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import DashboardNavbar from '@/components/DashboardNavbar';
+import DashboardFooter from '@/components/DashboardFooter';
 
 const Dashboard = () => {
   const cards = [
@@ -140,27 +141,7 @@ const Dashboard = () => {
       </section>
 
       {/* Quick Actions */}
-      <section className="py-12 px-4 bg-gradient-to-r from-red-600 to-red-800">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-white mb-6">
-            Emergency Actions
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold" asChild>
-              <Link to="/report-fraud">
-                <Flag className="h-5 w-5 mr-2" />
-                Report Scam Now
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-Black font-bold hover:bg-white hover:text-red-600" asChild>
-              <Link to="/emergency-contacts">
-                <Phone className="h-5 w-5 mr-2" />
-                Emergency Numbers
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <DashboardFooter />
     </div>
   );
 };
