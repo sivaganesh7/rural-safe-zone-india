@@ -1,10 +1,9 @@
-
 import { useState } from 'react';
 import { Shield, AlertTriangle, Smartphone, FileText, Users, Phone, Eye, ShieldAlert, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import MainNavbar from '@/components/MainNavbar';
-import Register from './Register';
+import { Link } from 'react-router-dom'; // ✅ Use Link for routing
 
 const Index = () => {
   const [currentLanguage, setCurrentLanguage] = useState('English');
@@ -51,7 +50,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-orange-50 to-red-100">
       <MainNavbar />
 
-      {/* Hero Section with Fraud Alert Theme */}
+      {/* Hero Section */}
       <section className="py-20 px-4 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-orange-600/10"></div>
         <div className="max-w-4xl mx-auto relative z-10">
@@ -70,23 +69,22 @@ const Index = () => {
               spot online frauds, and stay safe in the digital world.
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-lg px-8 py-4 shadow-xl" asChild>
-              <a href="/register">
+              <Link to="/register">
                 <Shield className="h-5 w-5 mr-2" />
                 Protect Yourself Now
-              </a>
+              </Link>
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-2 border-red-600 text-red-600 hover:bg-red-50 shadow-lg" asChild>
-              <a href="/register">
+              <Link to="/register">
                 <AlertTriangle className="h-5 w-5 mr-2" />
                 Learn More
-              </a>
+              </Link>
             </Button>
           </div>
 
-          {/* Warning Stats */}
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {warningStats.map((stat, index) => (
               <div key={index} className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-red-100">
@@ -104,7 +102,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features */}
       <section className="py-16 px-4 bg-white" id="features">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -118,36 +116,33 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-               <Card key={index} className="hover:shadow-2xl transition-all duration-300 cursor-pointer group       border-0 shadow-lg">
-                 <CardHeader className="text-center pb-2">
-                   <div className={`${feature.color} w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-xl`}>
-                     <feature.icon className="h-8 w-8 text-white" />
-                   </div>
-                   <CardTitle className="text-lg font-bold">{feature.title}</CardTitle>
-                 </CardHeader>
-                 <CardContent>
-                   <CardDescription className="text-center text-gray-600 mb-4 font-medium">
-                     {feature.description}
-                   </CardDescription>
-                   <Button className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900" asChild>
-                     <a href="/register">Start Learning</a>
-                   </Button>
-                 </CardContent>
-               </Card>
-))}
-
+              <Card key={index} className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-0 shadow-lg">
+                <CardHeader className="text-center pb-2">
+                  <div className={`${feature.color} w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-xl`}>
+                    <feature.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="text-lg font-bold">{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-center text-gray-600 mb-4 font-medium">
+                    {feature.description}
+                  </CardDescription>
+                  <Button className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900" asChild>
+                    <Link to="/register">Start Learning</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Emergency Alert Section */}
+      {/* Emergency Section */}
       <section className="py-16 px-4 bg-gradient-to-r from-red-600 to-red-800 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-red-400">
             <AlertTriangle className="h-20 w-20 text-yellow-300 mx-auto mb-6 animate-pulse" />
-            <h2 className="text-3xl font-bold mb-4">
-              Being Scammed Right Now?
-            </h2>
+            <h2 className="text-3xl font-bold mb-4">Being Scammed Right Now?</h2>
             <p className="text-xl mb-8 text-red-100">
               Don't panic. Take immediate action to protect yourself and your money.
             </p>
@@ -156,8 +151,8 @@ const Index = () => {
                 <Phone className="h-5 w-5 mr-2" />
                 Call 1930 Now
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-black  font-bold hover:bg-white hover:text-red-600" asChild>
-                <a href="/Register">Register For Other Scams </a>
+              <Button variant="outline" size="lg" className="border-white text-black font-bold hover:bg-white hover:text-red-600" asChild>
+                <Link to="/register">Register For Other Scams</Link>
               </Button>
             </div>
             <p className="text-sm text-red-200 mt-4 font-medium">
@@ -195,25 +190,22 @@ const Index = () => {
                 Empowering rural communities with fraud awareness and digital safety education.
               </p>
             </div>
-            
             <div>
               <h3 className="font-semibold mb-4 text-red-400">Learn & Protect</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/awareness" className="hover:text-white transition-colors">Document Fraud</a></li>
-                <li><a href="/scam-types" className="hover:text-white transition-colors">Online Scams</a></li>
-                <li><a href="/digital-literacy" className="hover:text-white transition-colors">Digital Safety</a></li>
+                <li><Link to="/awareness" className="hover:text-white transition-colors">Document Fraud</Link></li>
+                <li><Link to="/scam-types" className="hover:text-white transition-colors">Online Scams</Link></li>
+                <li><Link to="/digital-literacy" className="hover:text-white transition-colors">Digital Safety</Link></li>
               </ul>
             </div>
-            
             <div>
               <h3 className="font-semibold mb-4 text-red-400">Get Help</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/report-fraud" className="hover:text-white transition-colors">Report Fraud</a></li>
-                <li><a href="/emergency-contacts" className="hover:text-white transition-colors">Emergency Contacts</a></li>
+                <li><Link to="/report-fraud" className="hover:text-white transition-colors">Report Fraud</Link></li>
+                <li><Link to="/emergency-contacts" className="hover:text-white transition-colors">Emergency Contacts</Link></li>
                 <li><a href="#" className="hover:text-white transition-colors">Contact Support</a></li>
               </ul>
             </div>
-            
             <div>
               <h3 className="font-semibold mb-4 text-red-400">Emergency Numbers</h3>
               <ul className="space-y-2 text-gray-400">
@@ -223,7 +215,6 @@ const Index = () => {
               </ul>
             </div>
           </div>
-          
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2024 Fraud Shield. Protecting Rural India from Scams & Frauds.</p>
           </div>
