@@ -32,6 +32,14 @@ const Dashboard = () => {
       link: "/digital-literacy",
       stats: "20 safety tips"
     },
+        {
+      icon: Flag,
+      title: "Report Fraud Activity",
+      description: "Report suspicious incidents and help protect your community",
+      color: "bg-gradient-to-br from-purple-500 to-purple-700",
+      link: "/report-fraud",
+      stats: "24/7 support"
+    },
     
     {
       icon: Phone,
@@ -123,7 +131,7 @@ const Dashboard = () => {
                 Recent Fraud Alerts in Your Area
               </CardTitle>
             </CardHeader>
-            {/* <CardContent>
+             <CardContent>
               <div className="space-y-4">
                 {recentAlerts.map((alert, index) => (
                   <div key={index} className="flex items-center justify-between p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
@@ -135,7 +143,7 @@ const Dashboard = () => {
                   </div>
                 ))}
               </div>
-            </CardContent> */}
+            </CardContent> 
           {/* </Card> */}
         </div>
       </section>

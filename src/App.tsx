@@ -13,6 +13,7 @@ import ScamTypes from "./pages/ScamTypes";
 import DigitalLiteracy from "./pages/DigitalLiteracy";
 import EmergencyContacts from "./pages/EmergencyContacts";
 import NotFound from "./pages/NotFound";
+import ReportFraud from "./pages/ReportFraud";
 
 const queryClient = new QueryClient();
 
@@ -30,7 +31,7 @@ const App = () => (
           <Route path="/awareness" element={<Awareness />} />
           <Route path="/scam-types" element={<ScamTypes />} />
           <Route path="/digital-literacy" element={<DigitalLiteracy />} />
-
+          <Route path="/report-fraud" element={<ReportFraud />} />
           <Route path="/emergency-contacts" element={<EmergencyContacts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
