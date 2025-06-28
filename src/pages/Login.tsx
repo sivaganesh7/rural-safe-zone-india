@@ -17,7 +17,7 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
       await loginUser(email, password);
       setLoading(false);
@@ -29,33 +29,31 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        {/* Header */}
+    <div className="min-h-screen  bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8 ">
         <div className="text-center">
           <div className="flex justify-center">
             <Shield className="h-12 w-12 text-blue-600" />
           </div>
           <h2 className="mt-6 text-3xl font-bold text-gray-900">
-            Welcome Back
+            Welcome Back<br />
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Sign in to your Rural Fraud Alert account
+            Sign in to your Rural Fraud Alert account<br />మీ గ్రామ మోసాల హెచ్చరిక ఖాతాలో సైన్ ఇన్ చేయండి
           </p>
         </div>
 
-        {/* Login Form */}
-        <Card className="shadow-xl">
+        <Card className="shadow-xl rounded-3xl">
           <CardHeader>
-            <CardTitle className="text-center">Sign In</CardTitle>
+            <CardTitle className="text-center">Sign In<br /></CardTitle>
             <CardDescription className="text-center">
-              Enter your credentials to access your account
+              Enter your credentials to access your account<br />మీ ఖాతాను యాక్సెస్ చేయడానికి మీ వివరాలను నమోదు చేయండి
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="email">Email Address</Label>
+                <Label htmlFor="email">Email Address  (ఇమెయిల్ చిరునామా)</Label>
                 <div className="mt-1 relative">
                   <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input
@@ -71,7 +69,7 @@ const Login = () => {
               </div>
 
               <div>
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">Password  (పాస్‌వర్డ్)</Label>
                 <div className="mt-1 relative">
                   <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input
@@ -101,13 +99,13 @@ const Login = () => {
                     className="h-4 w-4 text-blue-600 border-gray-300 rounded"
                   />
                   <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                    Remember me
+                    Remember me<br /><span className="text-xs text-gray-500">నన్ను గుర్తుంచుకో</span>
                   </label>
                 </div>
 
                 <div className="text-sm">
                   <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-                    Forgot your password?
+                    Forgot your password?<br /><span className="text-xs text-gray-500">మీ పాస్‌వర్డ్ మర్చిపోయారా?</span>
                   </a>
                 </div>
               </div>
@@ -117,7 +115,7 @@ const Login = () => {
                 className="w-full bg-blue-600 hover:bg-blue-700"
                 disabled={loading}
               >
-                {loading ? 'Signing in...' : 'Sign In'}
+                {loading ? 'Signing in...' : 'Sign In'}<br /><span className="text-xs">{loading ? 'సైన్ ఇన్ అవుతోంది...' : 'లాగిన్ అవ్వండి'}</span>
               </Button>
             </form>
 
@@ -127,14 +125,14 @@ const Login = () => {
                   <div className="w-full border-t border-gray-300" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Don't have an account?</span>
+                  <span className="px-2 bg-white text-gray-500">Don't have an account?<br /><span className="text-xs text-gray-500">మీకు ఖాతా లేదా?</span></span>
                 </div>
               </div>
 
               <div className="mt-6">
                 <Link to="/register">
                   <Button variant="outline" className="w-full">
-                    Create New Account
+                    Create New Account<br /><span className="text-xs text-gray-500">కొత్త ఖాతా సృష్టించండి</span>
                   </Button>
                 </Link>
               </div>
@@ -142,10 +140,9 @@ const Login = () => {
           </CardContent>
         </Card>
 
-        {/* Back to Home */}
         <div className="text-center">
           <Link to="/" className="text-sm text-blue-600 hover:text-blue-500">
-            ← Back to Home
+            ← Back to Home<br />
           </Link>
         </div>
       </div>

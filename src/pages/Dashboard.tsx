@@ -1,4 +1,3 @@
-
 import { Shield, FileText, AlertTriangle, Smartphone, Flag, Phone, TrendingUp, Users, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,50 +10,43 @@ const Dashboard = () => {
     {
       icon: FileText,
       title: "Document Fraud Awareness",
-      description: "Learn to identify fake officers and document frauds",
+      description: "Learn to identify fake officers and document frauds\nపట్టాల మోసాలను మరియు నకిలీ అధికారులను గుర్తించండి",
       color: "bg-gradient-to-br from-blue-500 to-blue-700",
       link: "/awareness",
-      stats: "15 min read"
+      stats: "15 min read | 15 నిమిషాల చదువు"
     },
     {
       icon: AlertTriangle,
       title: "Scam Types & Detection",
-      description: "Spot UPI fraud, lottery scams, and QR code tricks before falling victim",
+      description: "Spot UPI fraud, lottery scams, and QR code tricks before falling victim\nUPI మోసాలు, లాటరీ స్కామ్స్ మరియు QR కోడ్ మోసాలను ముందుగానే గుర్తించండి",
       color: "bg-gradient-to-br from-red-500 to-red-700",
       link: "/scam-types",
-      stats: "12 common scams"
+      stats: "12 common scams | 12 సాధారణ మోసాలు"
     },
     {
       icon: Smartphone,
       title: "Digital Literacy & Safety",
-      description: "Master safe mobile usage and protect your digital transactions",
+      description: "Master safe mobile usage and protect your digital transactions\nమొబైల్ మరియు డిజిటల్ లావాదేవీల భద్రతను నేర్చుకోండి",
       color: "bg-gradient-to-br from-green-500 to-green-700",
       link: "/digital-literacy",
-      stats: "20 safety tips"
+      stats: "20 safety tips | 20 భద్రతా సూచనలు"
     },
-        {
+    {
       icon: Flag,
       title: "Report Fraud Activity",
-      description: "Report suspicious incidents and help protect your community",
+      description: "Report suspicious incidents and help protect your community\nసందేహాస్పద సంఘటనలను నివేదించి మీ సమాజాన్ని రక్షించండి",
       color: "bg-gradient-to-br from-purple-500 to-purple-700",
       link: "/report-fraud",
-      stats: "24/7 support"
+      stats: "24/7 support | 24/7 మద్దతు"
     },
-    
     {
       icon: Phone,
       title: "Emergency Contacts",
-      description: "Access important helpline numbers and emergency contacts instantly",
+      description: "Access important helpline numbers and emergency contacts instantly\nప్రధాన హెల్ప్‌లైన్ నంబర్లు మరియు అత్యవసర కాంటాక్ట్‌లను వెంటనే పొందండి",
       color: "bg-gradient-to-br from-orange-500 to-orange-700",
       link: "/emergency-contacts",
-      stats: "5 key numbers"
+      stats: "5 key numbers | 5 ముఖ్య నంబర్లు"
     }
-  ];
-
-  const recentAlerts = [
-    { type: "UPI Fraud", location: "Rural Karnataka", time: "2 hours ago" },
-    { type: "Fake Officer", location: "Village Telangana", time: "5 hours ago" },
-    { type: "Lottery Scam", location: "Rural Maharashtra", time: "1 day ago" }
   ];
 
   return (
@@ -66,10 +58,11 @@ const Dashboard = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Welcome to your Fraud Protection Center
+              Welcome to your Fraud Protection Center<br /><span className="text-xl text-gray-600">మీ మోసం నిరోధక కేంద్రానికి స్వాగతం</span>
             </h1>
             <p className="text-xl text-gray-600">
-              Stay informed, stay protected. Choose a topic to strengthen your defense against fraudsters.
+              Stay informed, stay protected. Choose a topic to strengthen your defense against fraudsters.<br />
+              సమాచారం పొందండి, రక్షించుకోండి. మోసాల నుండి రక్షించుకునేందుకు ఒక అంశాన్ని ఎంచుకోండి.
             </p>
           </div>
 
@@ -79,21 +72,21 @@ const Dashboard = () => {
               <CardContent className="p-6 text-center">
                 <TrendingUp className="h-8 w-8 mx-auto mb-2" />
                 <div className="text-2xl font-bold">85%</div>
-                <div className="text-sm opacity-90">Protection Rate</div>
+                <div className="text-sm opacity-90">Protection Rate<br />సురక్షిత శాతం</div>
               </CardContent>
             </Card>
             <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white border-0">
               <CardContent className="p-6 text-center">
                 <Users className="h-8 w-8 mx-auto mb-2" />
                 <div className="text-2xl font-bold">50K+</div>
-                <div className="text-sm opacity-90">Users Protected</div>
+                <div className="text-sm opacity-90">Users Protected<br />రక్షితమైన వినియోగదారులు</div>
               </CardContent>
             </Card>
             <Card className="bg-gradient-to-r from-purple-500 to-purple-600 text-white border-0">
               <CardContent className="p-6 text-center">
                 <Clock className="h-8 w-8 mx-auto mb-2" />
                 <div className="text-2xl font-bold">24/7</div>
-                <div className="text-sm opacity-90">Alert System</div>
+                <div className="text-sm opacity-90">Alert System<br />హెచ్చరిక వ్యవస్థ</div>
               </CardContent>
             </Card>
           </div>
@@ -116,39 +109,15 @@ const Dashboard = () => {
                     {card.description}
                   </CardDescription>
                   <Button className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900" asChild>
-                    <Link to={card.link}>Learn More</Link>
+                    <Link to={card.link}>Learn More<br /><span className="text-xs text-gray-200">ఇంకా తెలుసుకోండి</span></Link>
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
-
-          {/* Recent Fraud Alerts */}
-          {/* <Card className="bg-white shadow-xl border-0">
-            <CardHeader>
-              <CardTitle className="flex items-center text-red-600">
-                <AlertTriangle className="h-5 w-5 mr-2" />
-                Recent Fraud Alerts in Your Area
-              </CardTitle>
-            </CardHeader>
-             <CardContent>
-              <div className="space-y-4">
-                {recentAlerts.map((alert, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
-                    <div>
-                      <div className="font-semibold text-red-700">{alert.type}</div>
-                      <div className="text-sm text-gray-600">{alert.location}</div>
-                    </div>
-                    <div className="text-xs text-gray-500">{alert.time}</div>
-                  </div>
-                ))}
-              </div>
-            </CardContent> 
-          {/* </Card> */}
         </div>
       </section>
 
-      {/* Quick Actions */}
       <DashboardFooter />
     </div>
   );

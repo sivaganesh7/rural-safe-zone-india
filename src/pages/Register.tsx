@@ -69,25 +69,24 @@ const Register = () => {
             <Shield className="h-12 w-12 text-blue-600" />
           </div>
           <h2 className="mt-6 text-3xl font-bold text-gray-900">
-            Join Rural Fraud Alert
+            Join Rural Fraud Alert<br /><span className="text-xl text-gray-600">గ్రామ మోసాల హెచ్చరికకు చేరండి</span>
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Create your account to stay protected from scams
+            Create your account to stay protected from scams<br />మోసాల నుండి రక్షణ పొందడానికి మీ ఖాతాను సృష్టించండి
           </p>
         </div>
 
         <Card className="shadow-xl">
           <CardHeader>
-            <CardTitle className="text-center">Create Account</CardTitle>
+            <CardTitle className="text-center">Create Account<br /><span className="text-sm text-gray-500">ఖాతా సృష్టించండి</span></CardTitle>
             <CardDescription className="text-center">
-              Fill in your details to get started
+              Fill in your details to get started<br />ప్రారంభించడానికి మీ వివరాలను నమోదు చేయండి
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
               <div>
-                <Label htmlFor="name">Full Name</Label>
+                <Label htmlFor="name">Full Name<br /><span className="text-xs text-gray-500">పూర్తి పేరు</span></Label>
                 <div className="mt-1 relative">
                   <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input
@@ -103,9 +102,8 @@ const Register = () => {
                 </div>
               </div>
 
-              {/* Email */}
               <div>
-                <Label htmlFor="email">Email Address</Label>
+                <Label htmlFor="email">Email Address<br /><span className="text-xs text-gray-500">ఇమెయిల్ చిరునామా</span></Label>
                 <div className="mt-1 relative">
                   <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input
@@ -121,9 +119,8 @@ const Register = () => {
                 </div>
               </div>
 
-              {/* Password */}
               <div>
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">Password<br /><span className="text-xs text-gray-500">పాస్‌వర్డ్</span></Label>
                 <div className="mt-1 relative">
                   <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input
@@ -146,9 +143,8 @@ const Register = () => {
                 </div>
               </div>
 
-              {/* Confirm Password */}
               <div>
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Label htmlFor="confirmPassword">Confirm Password<br /><span className="text-xs text-gray-500">పాస్‌వర్డ్‌ను నిర్ధారించండి</span></Label>
                 <div className="mt-1 relative">
                   <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input
@@ -171,7 +167,6 @@ const Register = () => {
                 </div>
               </div>
 
-              {/* Terms */}
               <div className="flex items-center space-x-2">
                 <Checkbox
                   id="terms"
@@ -181,7 +176,8 @@ const Register = () => {
                 <label htmlFor="terms" className="text-sm text-gray-700">
                   I agree to the{' '}
                   <a href="#" className="text-blue-600 hover:text-blue-500">Terms</a> and{' '}
-                  <a href="#" className="text-blue-600 hover:text-blue-500">Privacy Policy</a>
+                  <a href="#" className="text-blue-600 hover:text-blue-500">Privacy Policy</a><br />
+                  <span className="text-xs text-gray-500">నేను నిబంధనలు మరియు గోప్యతా విధానాన్ని అంగీకరిస్తున్నాను</span>
                 </label>
               </div>
 
@@ -190,7 +186,7 @@ const Register = () => {
                 className="w-full bg-blue-600 hover:bg-blue-700"
                 disabled={loading || !acceptTerms}
               >
-                {loading ? 'Creating Account...' : 'Create Account'}
+                {loading ? 'Creating Account...' : 'Create Account'}<br /><span className="text-xs">{loading ? 'ఖాతా సృష్టిస్తోంది...' : 'ఖాతా సృష్టించండి'}</span>
               </Button>
             </form>
 
@@ -198,7 +194,7 @@ const Register = () => {
               <p className="text-sm text-gray-500">
                 Already have an account?{' '}
                 <Link to="/login" className="text-blue-600 hover:text-blue-500">
-                  Sign In Instead
+                  Sign In Instead<br /><span className="text-xs text-gray-500">ఇప్పటికే ఖాతా ఉందా? లాగిన్ అవ్వండి</span>
                 </Link>
               </p>
             </div>
@@ -207,7 +203,7 @@ const Register = () => {
 
         <div className="text-center">
           <Link to="/" className="text-sm text-blue-600 hover:text-blue-500">
-            ← Back to Home
+            ← Back to Home<br />
           </Link>
         </div>
       </div>
